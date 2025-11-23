@@ -38,7 +38,11 @@ public class AttendanceController {
 
     private void addStudent(){
         System.out.print("학생 이름: ");
-        String name = sc.next();
+        String name = sc.next().trim();
+        if (name.isEmpty()){
+            System.out.println("이름이 비어있을 수 없음");
+            return;
+        }
         service.addStudent(name);
         System.out.println("학생 등록 완료");
     }
